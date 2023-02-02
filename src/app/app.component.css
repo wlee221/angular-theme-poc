@@ -1,0 +1,28 @@
+:host {
+  max-width: 700px;
+  padding: 4rem;
+  display: block;
+  box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+p,
+li {
+  line-height: 160%;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.demo {
+  box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+details {
+  padding: 1rem;
+  box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+details .amplify-button {
+  margin-top: 1rem;
+}

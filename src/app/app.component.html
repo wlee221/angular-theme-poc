@@ -1,19 +1,48 @@
-<button amplify-button variation="primary">
-  I'm not inside a provider!
-</button>
+<h1>POC: amplify-theme-provider</h1>
+<p>
+  This POC shows that we can implement a
+  <code>amplify-theme-provider</code> that:
+  <li>
+    parses given <code>theme</code> object, convert it to an object of CSS
+    variables, and have it cascade downwards.
+  </li>
+  <li>
+    allows nested providers, and have scoped styles by using the nearest
+    parent's style.
+  </li>
+</p>
 
-<br/><br/>
+<h1>Demo</h1>
 
-<amplify-theme-provider [theme]="purpleTheme">
-  <button amplify-button variation="primary">
-    I'm in a top level provider!
-  </button>
+<p>This demo renders three buttons.</p>
 
-  <br/><br/>
-    
-  <amplify-theme-provider [theme]="greenTheme">
-    <button amplify-button variation="primary">
-      I'm in a nested provider!
-    </button>
-  </amplify-theme-provider>
-</amplify-theme-provider>
+<p>
+  The first one is not in a provider, and uses the default theme. The second one
+  is in a provider, that uses a purple theme. The third one is in a nested
+  provider, that uses a green theme.
+</p>
+
+<div class="demo">
+  <button amplify-button variation="primary">I'm not inside a provider!</button>
+
+  <br /><br />
+  <details >
+    <summary>Top Level Theme Provider</summary>
+    <amplify-theme-provider [theme]="purpleTheme">
+      <button amplify-button variation="primary">
+        I'm in a top level provider!
+      </button>
+      <amplify-theme-logger></amplify-theme-logger>
+
+      <details>
+        <summary>Nested Theme Provider</summary>
+        <amplify-theme-provider [theme]="greenTheme">
+          <button amplify-button variation="primary">
+            I'm in a nested provider!
+          </button>
+          <amplify-theme-logger></amplify-theme-logger>
+        </amplify-theme-provider>
+      </details>
+    </amplify-theme-provider>
+  </details>
+</div>
